@@ -1,0 +1,12 @@
+npx create-react-app react-typescript-crash --template typescript
+npm i react-router-dom @types/react-router-dom 
+tsconfig.json
+{
+  "compilerOptions": {
+    ...
+    "noImplicitAny": false
+  },
+  ...
+}
+
+neu gap loi thi rm -rf node_modules, rm -rf package-lock.json, npm install

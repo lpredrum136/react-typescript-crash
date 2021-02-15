@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const UserList = () => {
   const [user, setUser] = useState<object | null>(null)
+
   return (
     <Fragment>
       <p>User List</p>

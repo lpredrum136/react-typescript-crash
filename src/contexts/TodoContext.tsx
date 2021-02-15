@@ -1,6 +1,9 @@
-import { createContext } from 'react'
+import { ReactNode, createContext } from 'react'
 
 // Declare
+interface ITodoContextProps {
+  children: ReactNode
+}
 interface ITodo {
   id: number
   title: string
@@ -15,7 +18,7 @@ type TodoContextType = {
 
 export const TodoContext = createContext<TodoContextType | null>(null)
 
-const TodoContextProvider = ({ children }) => {
+const TodoContextProvider = ({ children }: ITodoContextProps) => {
   const sampleTodoData: TodoContextType = {
     todos: [
       {

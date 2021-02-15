@@ -9,7 +9,8 @@ type ThemeContextType = {
   toggleTheme: (theme: string) => void
 }
 
-export const ThemeContext = createContext<ThemeContextType | null>(null)
+// you cannot start createContext() with some default param because ThemeContextType has a function - what are you gonna set initial value for a function lol???
+export const ThemeContext = createContext<ThemeContextType | null>(null) // if lazy, delete the generics
 
 const ThemeContextProvider = ({ children }: IThemeContextProps) => {
   const defaultTheme = 'dark'

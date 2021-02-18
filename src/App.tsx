@@ -11,24 +11,27 @@ import Theme from './components/useStateAndContext/Theme'
 import CounterContextProvider from './contexts/CounterContext'
 import ThemeContextProvider from './contexts/ThemeContext'
 import TodoContextProvider from './contexts/TodoContext'
+import AuthContextProvider from './contexts/AuthContext'
 
 const App = () => {
   return (
     <div className='App'>
-      <TodoContextProvider>
-        <ThemeContextProvider>
-          <CounterContextProvider>
-            <Router>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/users' component={UserList} />
-                <Route exact path='/counter' component={Counter} />
-                <Route exact path='/theme' component={Theme} />
-              </Switch>
-            </Router>
-          </CounterContextProvider>
-        </ThemeContextProvider>
-      </TodoContextProvider>
+      <AuthContextProvider>
+        <TodoContextProvider>
+          <ThemeContextProvider>
+            <CounterContextProvider>
+              <Router>
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/users' component={UserList} />
+                  <Route exact path='/counter' component={Counter} />
+                  <Route exact path='/theme' component={Theme} />
+                </Switch>
+              </Router>
+            </CounterContextProvider>
+          </ThemeContextProvider>
+        </TodoContextProvider>
+      </AuthContextProvider>
     </div>
   )
 }

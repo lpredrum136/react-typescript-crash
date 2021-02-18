@@ -1,23 +1,25 @@
-import { useContext } from 'react'
+import { MouseEvent, useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+import { AuthActionStaticType } from '../../reducers/types'
 
 const Auth = () => {
-  const { isAuthenticated, dispatch } = useContext(AuthContext)!
+  const { TOGGLE_AUTH } = AuthActionStaticType
+  const { isAuthenticated, dispatch } = useContext(AuthContext)
   // console.log(authContextState)
+
+  const toggleAuth = (event: MouseEvent): void => {
+    dispatch({
+      type: 'TOGGLE_AUTH',
+      payload: null
+    })
+  }
 
   return (
     <div>
-      {isAuthenticated ? (
-        <div>
-          <p>Welcome user</p>
-          <button>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <p>Please login</p>
-          <button>Login</button>
-        </div>
-      )}
+      <p>{isAuthenticated ? 'Welcome user' : 'Please login'}</p>
+      <button onClick={toggleAuth}>
+        {isAuthenticated ? 'Logout' : 'Login'}
+      </button>
     </div>
   )
 }

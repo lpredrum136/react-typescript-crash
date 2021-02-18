@@ -1,5 +1,6 @@
 import { ChangeEvent, MouseEvent, useContext, useState } from 'react'
 import { ThemeContext } from '../../contexts/ThemeContext'
+import { Link } from 'react-router-dom'
 
 const Theme = () => {
   const [userTheme, setUserTheme] = useState('')
@@ -27,6 +28,7 @@ const Theme = () => {
         onChange={onThemeInput}
       />
       <button onClick={onThemeSubmit}>Change Theme!</button>
+      <Link to='/'>Home</Link>
     </div>
   )
 }

@@ -11,10 +11,19 @@ type AuthContextType = {
   dispatch: Dispatch<AuthActionType>
 }
 
-export const AuthContext = createContext<AuthContextType | null>(null)
+const initialIsAuthenticated = false
+
+// here we must initialise it, cannot do createContext<AuthContextType | null>(null)
+export const AuthContext = createContext<AuthContextType>({
+  isAuthenticated: initialIsAuthenticated,
+  dispatch: () => null
+})
 
 const AuthContextProvider = ({ children }: IAuthContextProps) => {
-  const [isAuthenticated, dispatch] = useReducer(authReducer, false)
+  const [isAuthenticated, dispatch] = useReducer(
+    authReducer,
+    initialIsAuthenticated
+  )
 
   const authContextData: AuthContextType = {
     isAuthenticated,

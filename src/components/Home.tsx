@@ -20,6 +20,10 @@ const Home = () => {
       <Link to='/counter'>Counter</Link>
       <br />
       <Link to='/theme'>Theme</Link>
+      <br />
+      <Link to='/todos'>Todos</Link>
+      <br />
+      <Link to='/posts'>Posts</Link>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const Auth = () => {
 
   const toggleAuth = (event: MouseEvent): void => {
     dispatch({
-      type: 'TOGGLE_AUTH',
+      type: TOGGLE_AUTH,
       payload: null
     })
   }
